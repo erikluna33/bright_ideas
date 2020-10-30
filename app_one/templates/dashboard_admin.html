@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+
+  <script>
+    $(document).ready(function() {
+        alert("This is the Admin Page");
+        $('#myInput').on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+</head>
+<body>
+    <div class="container">
+    <h1>Welcome Admin!</h1>
+    <h3>All Users</h3>
+    <ul class="nav navbar-nav">
+        <li><a href="/add_user_page" class="btn btn-warning">Add New User</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="/logout" class="btn btn-danger">Logout</a></li>
+    </ul>
+
+    <input id="myInput" type="text" placeholder="Search Users">
+   
+    <table class="table">
+        <thead>
+            <tr class="success">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Created at</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody id="myTable">
+            {% for user in all_users %}
+            <tr class="info">
+                <td>{{ user.id }}</td>
+                <td>{{ user.first_name }} {{ user.last_name }}</a></td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.created_at }}</td>
+                <td><a href="/user/update/{{user.id}}" class="btn btn-success" role="button">Update</a> | <a href="/delete/{{user.id}}" class="btn btn-danger">Remove</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/ideas" class="btn btn-primary btn-block">Go to Ideas!</a>
+
+    </div>
+
+</body>
+</html>

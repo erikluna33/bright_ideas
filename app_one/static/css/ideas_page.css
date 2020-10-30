@@ -1,0 +1,14 @@
+img{
+    width: 45px;
+}
+body{
+    background-color: #dfe6ec;
+}
+
+.idea_box{
+    border: 2px solid #71aadb;
+    padding: 10px;
+    text-align: center;
+    border-radius: 25px;
+}
+

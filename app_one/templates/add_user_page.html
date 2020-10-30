@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Users</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+      body{
+          background-color: #6c87a1;
+      }
+  </style>
+</head>
+<body>
+    <div class='container'>
+        <h1>This is where you add new users!</h1>
+        
+
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li {%if message.tags %} class="{{ message.tags }}" {% endif %}></li>{{ message }}</li>
+            {% endfor %}
+    </ul>
+    {% endif %}
+
+<form action="/add_new_user" method="POST">
+        {% csrf_token %}
+        <p><label for="first_name">First Name</label></p>
+        <p><input type="text" id="first_name" name="first_name"></p>
+
+        <p><label for="last_name">Last Name</label></p>
+        <p><input type="text" id="last_name" name="last_name"></p>
+
+        <p><label for="email">Email:</label></p>
+        <p><input type="text" id="email" name="email"></p>
+
+        <p><label for="password">Password</label></p>
+        <p><input type="password" id="password" name="password"></p>
+
+        <p><label for="confirm_pw">Confirm PW</label></p>
+        <p><input type="password" id="confirm_pw" name="confirm_pw"></p>
+
+        <p><input type="submit" class="btn btn-info" value="Create"></p>
+    </form>
+    <p><a href="/dashboard" class="btn btn-primary">Return to Dashboard</a></p>
+    <p><a href="/logout" class="btn btn-danger">Logout</a></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+
+
+.container{
+    background-color: hsl(208, 74%, 82%);
+    background-image: linear-gradient(#71aadb, #6bacd4, #1DA1F2 );
+    border-radius: 30px;
+}
+
+.admin_header{
+    text-align: center;
+}
+
+body{
+    background-color: #6c87a1;
+}
+
+.register{
+    display: inline-block;
+}
+
+.login{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 65%;
+}
+

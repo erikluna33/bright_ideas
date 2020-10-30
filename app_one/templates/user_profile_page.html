@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function(){
+        $("#flip").click(function(){
+            $("#panel").slideDown("slow");
+        });
+    });
+  </script>
+  <style>
+      
+    body{
+        background-color: #15202B;
+    }
+    #panel, #flip {
+      padding: 5px;
+      text-align: center;
+      background-color: #71C9F8;
+      border: solid 1px white;
+      border-radius: 25px;
+    }
+    
+    #panel {
+      padding: 50px;
+      display: none;
+    }
+    a{
+        margin-left: 45%;
+    }
+    </style>
+
+</head>
+<body>
+    <div id="flip"><h3>Click to view number of ideas and comments!</h3></div>
+        <div id="panel">
+            <h1>{{ current_user.first_name }} {{ current_user.last_name }}</h1>
+            <h2>{{ current_user.email }}</h2>
+            <br>
+            <h2>Total number of Ideas: {{ current_user.ideas.count }}</h2>
+            <h2>Total number of Comments: {{ current_user.comments.count }}</h2>
+        </div>
+    
+
+        
+    </div>
+    <hr>
+    <p><a href="/ideas" class="btn btn-primary">See everyone's ideas!</a></p>
+    <p><a href="/dashboard" class="btn btn-primary">Return to Dashboard</a></p>
+    <p><a href="/logout" class="btn btn-danger">Logout</a></p>
+</body>
+</html>
